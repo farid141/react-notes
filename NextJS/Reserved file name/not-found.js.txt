@@ -1,0 +1,4 @@
+untuk menampilkan route tidak ditemukan
+
+Untuk kasus routing dinamis, ketika id tidak ditemukan. Bisa melakukan:
+1. pengecekan konten pada halaman, memanggil method notFound() dari next js, akan diarahkan ke file not-found terdekat

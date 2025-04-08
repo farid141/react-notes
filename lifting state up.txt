@@ -1,0 +1,3 @@
+kita dapat mempassing fungsi ke komponen yang biasanya akan untuk dipanggil dalam komponen ketika terjadi sebuah aksi terhadap elemen didalamnya.
+
+Fungsi tersebut, memiliki akses ke komponen parentnya, sehingga dapat memodifikasi variabel di komponen parent

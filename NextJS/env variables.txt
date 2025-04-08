@@ -1,0 +1,5 @@
+pada nextjs, sudah ada fitur environment variable
+
+kita bisa membuat file .env pada root folder dan menggunakannya pada halaman/komponen dengan:process.env.keyName
+
+# untuk menggunakan env variabel pada komponen client, gunakan awalan NEXT_PUBLIC

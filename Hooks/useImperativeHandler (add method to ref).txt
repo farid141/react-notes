@@ -1,0 +1,13 @@
+ketika memforward ref ke child, kita dapat menambahkan fungsi ref tersebut yang dapat dipanggil dari parent. Ini merupakan pattern yang biasa diterapkan pada projek besar, karena bisa saja komponen yang kita gunakan harus dimodifikasi karena komponen child memodifikasi cara menampilkan modal
+
+const dialog = useRef();
+
+useImperativeHandler(ref, ()=>{
+return {
+	open(){
+		dialog.current.showModal
+	}
+}
+})
+
+*ref merupakan prop yang didapat dari parent

@@ -1,0 +1,8 @@
+menggunakan gambar yang lebih teroptimasi, secara default:
+- lazy loaded (diload ketika terlihat)
+- webP ekstensi
+
+# Basic usage
+Image src={}
+
+terdapat banyak props yang dapat digunakan

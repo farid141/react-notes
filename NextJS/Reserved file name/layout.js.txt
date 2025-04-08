@@ -1,0 +1,3 @@
+berfungsi sebagai wrapper untuk route pada folder tersebut
+
+memiliki props children

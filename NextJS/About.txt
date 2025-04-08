@@ -1,0 +1,7 @@
+Framework fullstack React JS
+Secara default adalah SSR (server-side rendering), keuntungannya:
+- meningkatkan SEO
+- tidak ada initial load
+
+Memiliki beberapa fitur:
+- Direktori routing, dengan nama file page.js nama fungsi bebas

@@ -1,0 +1,12 @@
+Terdapat beberapa cara:
+1. css secara global (akan diimport pada app/layout.js)
+2. tailwind css (ada dokumentasi khusus penggunaan di react)
+3. menggunakan module css pada direktori komponen (.module.css)
+import styles from './'
+kemudian gunakan nama class dalam komponen:
+className={style.class_name}
+
+penulisan nama class, jika dengan
+style.nama-class akan error pada js.
+Untuk itu gunakan squared notations
+style['nama-class']

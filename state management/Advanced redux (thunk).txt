@@ -1,0 +1,11 @@
+Ada beberapa aturan dalam state management dengan redux:
+1. Fungsi reducer haruslah pure, synchronous
+2. Ketika ingin menggunakan async, jangan dimasukkan ke reducer
+
+Permasalahannya ditaruh dimana, jika kita taruh di callback komponen maka ketika komponen lain ada yang menggunakan reducer yang sama, kita perlu copas logic tersebut, dimana hal ini sangat merepotkan dan tidak rapi.
+
+Ada beberapa solusi untuk ini:
+1. useEffect dengan parameter store pada komponen App, melihat perubahan data
+2. Action creators/thunk, fitur dari redux toolkit, sama seperti awal, hanya saja penulisan logic diletakkan pada store
+
+pada thunk, kita membuat sebuah aciton creator terpisah dari slice. Tetapi isinya kita membuat fungsi nested async untuk mengambil data server, sehingga ketika hasil didapatkan dapat didispatch ke slice terkait untuk mengupdate state.

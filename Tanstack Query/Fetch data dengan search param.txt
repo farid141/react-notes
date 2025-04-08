@@ -1,0 +1,7 @@
+Ketika kita navigasi dan fetch berjalan tetapi kita menavigasi ke tempat lain sebelum fetch selesai, proses fetch akan dihentikan. Dalam hal ini secara default sebenarnya pemanggilan fetch menerima objek signal.
+
+Untuk itu, kita dapat mengatasinya dengan mem-passing data param tersebut dengan cara:
+1. 
+queryKey: ['events', {search:searchTerm}]
+queryFn: ({ signal })=>fetchData({ signal, searchParam }) //passing objek search
+2. export async function fetchEvents({signal, searchTerm})  // destructure the obj params

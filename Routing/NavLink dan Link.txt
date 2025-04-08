@@ -1,0 +1,32 @@
+## Navlink sangat berguna untuk memudahkan stylink pada link yang aktif
+
+<NavLink
+  to="/"
+  className={({ isActive }) =>
+    isActive ? "active" : ""
+  }
+>
+  Home
+</NavLink>
+
+## Link digunakan untuk link biasa
+<Link to="/concerts/salt-lake-city">Concerts</Link>
+
+## useNavigate berguna untuk mengarahkan lewat script, seperti quiz habis waktu, form berhasil
+import { useNavigate } from "react-router";
+
+export function LoginPage() {
+  let navigate = useNavigate();
+
+  return (
+    <>
+      <MyHeader />
+      <MyLoginForm
+        onSuccess={() => {
+          navigate("/dashboard");
+        }}
+      />
+      <MyFooter />
+    </>
+  );
+}

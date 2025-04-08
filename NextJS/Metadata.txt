@@ -1,0 +1,8 @@
+Berguna untuk meningkatkan SEO
+
+Pada react, kita dapat menuliskannya pada layout
+- export const metadata
+- secara dinamis pada tiap halaman lainnya, kita dapat menggunakan komponen async:
+export async function generateMetadata({params}){
+  return {metadata_obj}
+}

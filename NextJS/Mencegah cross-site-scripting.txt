@@ -1,0 +1,5 @@
+# Definisi
+sebuah serangan dimana penyerang meletakkan sebuah input data berupa script yang dapat dieksekusi oleh client lain yang mengakses halamn tersebut.
+
+# Contoh
+- Membuat konten blog yang dapat diakses semua user di web tersebut. Tetapi didalamnya ada code js yang mengambil informasi cookies dan mengirimnya ke server tertentu

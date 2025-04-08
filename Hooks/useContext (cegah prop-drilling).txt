@@ -1,0 +1,50 @@
+# untuk mencegah prop-drilling dari parent ke grand-child
+- bisa digunakan untuk mem-passing state dari useReducer atau useState
+
+# referensi: section 168-174
+
+import React, { createContext } from 'react';
+
+# Buat context
+const DataContext = createContext();
+
+# Komponen provider
+const DataProvider = ({ children }) => {
+  const data = {
+    nama: "John Doe",
+    usia: 25,
+    pekerjaan: "Developer"
+  };
+
+  return (
+    <DataContext.Provider value={data}>
+      {children}
+    </DataContext.Provider>
+  );
+};
+
+# Komponen yang menggunakan context
+const UserInfo = () => {
+  return (
+    <DataContext.Consumer>
+      {(data) => (
+        <div>
+          <p>Nama: {data.nama}</p>
+          <p>Usia: {data.usia}</p>
+          <p>Pekerjaan: {data.pekerjaan}</p>
+        </div>
+      )}
+    </DataContext.Consumer>
+  );
+};
+
+# Wrap komponen dengan provider, dalam hal ini App utama
+const App = () => {
+  return (
+    <DataProvider>
+      <UserInfo />
+    </DataProvider>
+  );
+};
+
+export default App;

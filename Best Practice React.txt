@@ -1,0 +1,3 @@
+Untuk merapikan code ada beberapa cara dan konvensi:
+- Compound component, membuat sebuah folder component/Accordion di dalamnya terdapat komponen AccordionItem dan Accordion.
+- Dengan compound component, kita dapat menggunakan context pada wrapper untuk dapat diakses child

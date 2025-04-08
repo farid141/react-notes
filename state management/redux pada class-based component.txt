@@ -1,0 +1,27 @@
+import {component} from 'react'
+
+
+class Counter extends Component{
+	incrementHandler(){
+	}
+
+	render(){
+		return ()
+	}
+}
+
+# redux class based component
+const mapToProps  = state=>{
+return {counter: state.counter}
+}
+
+const mapDispatchToProps = dispatch => {
+	return {increment: ()=>dispatch({type: 'increment'})}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter)
+
+# pada class, kita bisa mengakses store melalui this.props.
+class Counter extends Component{
+	incrementHandler(){this.props.increment();}
+}

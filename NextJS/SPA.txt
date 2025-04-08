@@ -1,0 +1,3 @@
+# untuk mengaktifkan SPA pada next, sebagai pengganti anchor, gunakan: 
+import Link from 'next/link'
+

@@ -1,0 +1,8 @@
+harus client component
+
+bisa ditempatkan di halaman utama atau sub-halaman
+
+kegunaan:
+- menampilkan informasi error ketika data fetching gagal
+
+didalamnya merupakan komponen yang akan menerima props error

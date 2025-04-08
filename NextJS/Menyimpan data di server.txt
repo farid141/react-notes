@@ -1,0 +1,17 @@
+Section 464.
+
+Penyimpanan 
+- Menggunakan library xss untuk sanitasi input berbahaya seperti SQL injection
+- Untuk file dilakukan dengan cara mengakses library fs, pengambilan ekstensi dan konversi nama ke slug.
+
+Apabila menggunakan next secara fullstack:
+1. Penggunaan form akan menggunakan lib/actions fungsi async
+2. gunakan fungsi tersebut pada atribut action pada form
+3. Untuk loading state, dibuat komponen button dengan 'use server'
+menggunakan nilai pending dari useFormStatus untuk render disabled/keterangan tombol
+4. Gunakan const [state, formAction] = useFormState(fungsi async, {message:null})
+- formAction akan bernilai fungsi async tersebut
+- state merupakan pesan/validasi be yang gagal
+
+# Penyimpanan file
+Sebaiknya jangan simpan file pada filesystem server, karena pada saat build production 

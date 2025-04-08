@@ -1,0 +1,11 @@
+Merupakan pattern untuk membuat komponen lebih rapi dan simple
+Semisal buat komponen Input.jsx, didalamnya terdapat
+<p>
+	<label>{label}</label>
+	<input {props} />
+</p>
+
+penentuan pembuatan komponen yang baik bermanfaat untuk:
+- meningkatkan keterbacaan code lebih modular. 
+- meningkatkan performa code, karena perubahan local state pada komponen tidak mere-render parent
+- reusabilitas, komponen dapat digunakan pada halaman lain

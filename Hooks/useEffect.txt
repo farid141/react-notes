@@ -1,0 +1,21 @@
+useEffect(callback, params)
+callback akan dijalankan ketika komponen selesai dirender pada dom
+
+penggunaan:
+- tanpa params: useEffect(callback), dijalankan setiap re-render
+- dengan params kosong: useEffect(callback, []) dijalankan ketika mount saja
+- tanpa params: useEffect(callback, [param1, param2]) dijalankan saat mount + setiap param berubah
+
+bisa diletakkan sebuah cleanup function untuk freeup resource/event
+1. semisal vent ketika window di-resize, hanya ketika mount saja
+return () => {
+      document.removeEventListener('click', () => {
+        setCount(count + 1);
+      }); // Free up resources
+    };
+
+return () => {
+      clearInterval(intervalId); // Free up resources
+    };
+
+dalam urutan eksekusi, cleanup akan dijalankan pertama kali sebelum effect function dijalankan
