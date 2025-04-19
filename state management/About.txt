@@ -1,8 +1,0 @@
-dua hooks yang digunakan adalah:
-- useState()
-- useReducer()
-
-State dibagi menjadi tiga:
-1. local state = menggunakan useReducer ataupun useState
-2. component state = menggunakan context API untuk mencegah prop-drilling dibantu dengan useReducer untuk merapikan
-3. app-wide state = menggunakan redux dan redux-toolkit

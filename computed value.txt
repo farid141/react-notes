@@ -1,3 +1,0 @@
-Dalam react, kita tidak menggunakan computed seperti pada vue, dikarenakan pada saat komponen dirender, semua statement dalam komponen akan dieksekusi kembali
-
-istilahnya adalah derived value, didapatkan dari komputasi state

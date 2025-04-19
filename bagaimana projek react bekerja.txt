@@ -1,4 +1,0 @@
-menggunakan file utama index.html. Didalamnya terdapat div, yang akan dimodifikasi oleh index.js pada bagian akhir. 
-
-Pada file index.jsx ini merupakan pintu utama antara file yang dirender react (App) dengan index.html
-karena menggunakan "ReactDOM"

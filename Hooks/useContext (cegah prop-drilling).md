@@ -1,12 +1,16 @@
-untuk mencegah prop-drilling dari parent ke grand-child
-- bisa digunakan untuk mem-passing state dari useReducer atau useState
+# useContext()
+
+Untuk mencegah prop-drilling dari parent ke grand-child.
+
+## Context dan typescript
 
 Berikut contoh penulisan **React Context** yang baik menggunakan **Reducer** dan **TypeScript**. Ini adalah pattern yang scalable dan maintainable untuk state global, cocok buat aplikasi menengah hingga besar.
 
 ---
 
 ## 📦 Struktur Direktori (Opsional, tapi Rapi)
-```
+
+```bash
 src/
   context/
     CounterContext.tsx
@@ -18,10 +22,11 @@ src/
 
 ---
 
-## 1. `CounterContext.tsx`
+## 1. Buat file context
 
-```tsx
-import React, { createContext, useContext, useReducer, ReactNode } from 'react';
+```typescript
+// CounterContext.tsx
+import React, { createContext, useContext, useReducer, ReactNode } from "react";
 
 // 1. Define state type
 type CounterState = {
@@ -29,10 +34,10 @@ type CounterState = {
 };
 
 // 2. Define action types
-type CounterAction = 
-  | { type: 'INCREMENT' }
-  | { type: 'DECREMENT' }
-  | { type: 'RESET' };
+type CounterAction =
+  | { type: "INCREMENT" }
+  | { type: "DECREMENT" }
+  | { type: "RESET" };
 
 // 3. Initial state
 const initialState: CounterState = {
@@ -40,13 +45,16 @@ const initialState: CounterState = {
 };
 
 // 4. Reducer function
-function counterReducer(state: CounterState, action: CounterAction): CounterState {
+function counterReducer(
+  state: CounterState,
+  action: CounterAction
+): CounterState {
   switch (action.type) {
-    case 'INCREMENT':
+    case "INCREMENT":
       return { count: state.count + 1 };
-    case 'DECREMENT':
+    case "DECREMENT":
       return { count: state.count - 1 };
-    case 'RESET':
+    case "RESET":
       return { count: 0 };
     default:
       return state;
@@ -77,19 +85,25 @@ export const CounterProvider = ({ children }: { children: ReactNode }) => {
 export const useCounter = () => {
   const context = useContext(CounterContext);
   if (!context) {
-    throw new Error('useCounter must be used within a CounterProvider');
+    throw new Error("useCounter must be used within a CounterProvider");
   }
   return context;
 };
 ```
 
+Di dalamnya terdapat dua bagian utama yang akan kita gunakan pada komponen yang akan menggunakan context:
+
+- Komponen Provider, wrapper agar child dapat menggunakan context
+- Custom hooks `useCounter` untuk memanggil state/dispatcher dari child komponen
+
 ---
 
-## 2. `CounterDisplay.tsx`
+## 2. Akses context pada child komponen
 
 ```tsx
-import React from 'react';
-import { useCounter } from '../context/CounterContext';
+// CounterDisplay.tsx
+import React from "react";
+import { useCounter } from "../context/CounterContext";
 
 const CounterDisplay = () => {
   const { state } = useCounter();
@@ -100,22 +114,19 @@ const CounterDisplay = () => {
 export default CounterDisplay;
 ```
 
----
-
-## 3. `CounterButtons.tsx`
-
 ```tsx
-import React from 'react';
-import { useCounter } from '../context/CounterContext';
+// CounterButtons.tsx
+import React from "react";
+import { useCounter } from "../context/CounterContext";
 
 const CounterButtons = () => {
   const { dispatch } = useCounter();
 
   return (
     <div>
-      <button onClick={() => dispatch({ type: 'INCREMENT' })}>+</button>
-      <button onClick={() => dispatch({ type: 'DECREMENT' })}>-</button>
-      <button onClick={() => dispatch({ type: 'RESET' })}>Reset</button>
+      <button onClick={() => dispatch({ type: "INCREMENT" })}>+</button>
+      <button onClick={() => dispatch({ type: "DECREMENT" })}>-</button>
+      <button onClick={() => dispatch({ type: "RESET" })}>Reset</button>
     </div>
   );
 };
@@ -128,15 +139,15 @@ export default CounterButtons;
 ## 4. `App.tsx`
 
 ```tsx
-import React from 'react';
-import { CounterProvider } from './context/CounterContext';
-import CounterDisplay from './components/CounterDisplay';
-import CounterButtons from './components/CounterButtons';
+import React from "react";
+import { CounterProvider } from "./context/CounterContext";
+import CounterDisplay from "./components/CounterDisplay";
+import CounterButtons from "./components/CounterButtons";
 
 function App() {
   return (
     <CounterProvider>
-      <div style={{ textAlign: 'center', marginTop: '50px' }}>
+      <div style={{ textAlign: "center", marginTop: "50px" }}>
         <h1>React Context + Reducer + TypeScript</h1>
         <CounterDisplay />
         <CounterButtons />
@@ -147,5 +158,3 @@ function App() {
 
 export default App;
 ```
-
----

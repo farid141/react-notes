@@ -1,9 +1,0 @@
-pada penggunaan redux, kita membuat state management berupa object yang berisi beberapa state. Selain itu, terdapat parameter action yang digunakan untuk mengatur action untuk semua state.
-
-Hal ini dapat mengakibatkan bug ketika kita teledor mendefinisikan action tipe yang sama unutk mengatur state yang berbeda
-
-hal ini bisa diatasi dengan redux toolkit, dimana kita bisa memastikan action pada dispatch sesuai dengan file redux
-
-Kita juga dapat menginstall ekstensi redux devtools pada browser untuk dapat melihat global state dengan mudah dan dapat merekam sebuah perubahan state
-
-https://github.com/academind/react-complete-guide-course-resources/blob/main/code/19%20Redux%20Basics/09-introducing-redux-toolkit/src/store/index.js

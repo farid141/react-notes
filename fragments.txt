@@ -1,8 +1,0 @@
-dalam react, satu komponen hanya dapat mengembalikan satu parent element, sehingga biasanya kita kemas dalam <div>. 
-Tetapi terkadang kita tidak menginginkan div dan tetap mengembalikan beberapa komponen
-
-Untuk mengatasi hal tersebut, bisa menggunakan komponen "Fragment" dari library react, atau dapat menggunakan tag kosong untuk mengemas komponen tersebut
-
-<>
-
-</>
