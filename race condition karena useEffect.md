@@ -1,7 +1,8 @@
+# Penjelasan
+
 ketika sebuah useEffect depend ke sebuah atribut dan atribut tersebut berubah dengan cepat sebelum request pertama selesai. Race condition akan terjadi karena pengubahan state bersamaan.
 
-# Berikut pencegahannya:
-### 1. Flag async
+## 1. Flag async
 
 ```javascript
 useEffect(() => {
@@ -29,7 +30,8 @@ useEffect(() => {
 
 Ketika async selesai maka async sebelumnya tidak akan mengupdate state apabila ada async baru yang berjalan (ditandai dengan isSubscribed=false).
 
-### 2. Debounce / Throttle
+## 2. Debounce / Throttle
+
 Kalau kamu ingin membatasi seberapa sering efek dijalankan, kamu bisa debounce-nya:
 
 ```javascript
@@ -54,12 +56,15 @@ function MyComponent({ query }) {
   return <div>{/* render results */}</div>;
 }
 ```
+
 Alternatifnya kamu juga bisa buat debounce pakai useRef dan setTimeout manual.
 
-### 3. Abort Fetch / Cancel Previous Requests
+## 3. Abort Fetch / Cancel Previous Requests
+
 Kalau pakai fetch atau axios, kamu bisa batalkan request sebelumnya jika ada request baru:
 
 Contoh dengan AbortController:
+
 ```javascript
 useEffect(() => {
   const controller = new AbortController();
@@ -82,17 +87,3 @@ useEffect(() => {
   return () => controller.abort(); // cleanup, cancel fetch if effect runs again
 }, [url]);
 ```
-
-## Ringkasan
-Kapan Perlu useEffect?	Kapan Cukup useMemo / Filter?
-Ambil data dari API / external	Filter data lokal yang sudah ada
-Perlu side-effect (localStorage, timer, event listener)	Hanya butuh turunan dari state lokal
-Perubahan state terlalu cepat? Debounce / Abort	Tidak perlu effect, hindari race condition
-
-# Kapan Cleanup Function Dieksekusi?
-Cleanup function tidak dieksekusi langsung setelah useEffect selesai, melainkan dieksekusi pada dua kondisi berikut:
-
-1. Sebelum useEffect dijalankan lagi: Ketika dependency array berubah, React akan menjalankan cleanup function terlebih dahulu sebelum menjalankan useEffect lagi.
-2. Ketika komponen di-unmount: Ketika komponen dihapus dari DOM, React akan menjalankan cleanup function.
-
-Ini berarti kode dalam cleanup function tidak dieksekusi secara langsung setelah useEffect selesai, melainkan ditunda sampai salah satu dari dua kondisi di atas terjadi.

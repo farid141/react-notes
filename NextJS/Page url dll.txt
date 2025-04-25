@@ -1,8 +1,0 @@
-# Dinamis route:
-- buat folder bernama [slug], slug bisa diganti kata lain
-- bisa mengakses nilai dinamis dengan props bermana {params.slug}
-
-# Route yang aktif (client component)
-const path = usePath();
-{path.startsWith('/meals') ? 'class-name' : undefined}
-

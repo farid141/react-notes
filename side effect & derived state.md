@@ -1,6 +1,37 @@
-Dalam react, statement yang terdapat dalam fungsi komponen akan dieksekusi kembali pada saat komponen di-rerender. Terkadang kita tidak ingin menjalankan statement tersebut di semua komponen re-render, tetapi hanya pada saat waktu tertentu.
+# Penjelasan
 
-Contoh kasus:
-Ketika kita melakukan request api dalam fungsi komponen, request akan berjalan asinkronus. Didalam callbacknya, terdapat aksi untuk mengupdate state. Sehingga komponen akan dirender lagi dan request API dilakukan kembali terus menerus.
+Pada saat komponen di-rerender, statement yang terdapat dalam fungsi komponen akan dieksekusi kembali.
 
-Untuk itu kita bisa menggunakan useEffect() hooks, yang membatasi sebuah statement hanya dijalankan ketika apa saja
+## Derived State
+
+Kita dapat memanfaatkan proses rendering tersebut untuk membuat `Derived State` sebuah variable turunan dari sebuah state. Derived state dapat dirender karena merupakan variabel javascript.
+
+## Side Effect & Infinite Loop
+
+Terkadang kita tidak ingin menjalankan statement tersebut di semua komponen re-render, tetapi hanya pada saat waktu tertentu.
+
+### Contoh kasus
+
+```jsx
+import React, { useState } from 'react';
+import axios from 'axios';
+
+function Users() {
+  const [users, setUsers] = useState([]);
+
+  // ⚠️ Ini akan menyebabkan infinite loop!
+  axios.get('https://jsonplaceholder.typicode.com/users')
+    .then(response => {
+      setUsers(response.data);
+    });
+
+  return (
+    <ul>
+      {users.map(user => <li key={user.id}>{user.name}</li>)}
+    </ul>
+  );
+}
+
+```
+
+Untuk itu kita bisa menggunakan `useEffect()` hooks, yang tidak akan dieksekusi setiap komponen di-render. Melainkan ketika dependency berubah saja.

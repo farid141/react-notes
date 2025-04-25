@@ -1,8 +1,0 @@
-# Seperti yang kita tahu, next JS bekerja secara SSR. Untuk menggunakan fitur FE (hooks, function handler, dll) dapat dilakukan dengan:
-menuliskan 'use client'; pada bagian atas komponen
-
-# Sebisa mungkin hindari client component terlalu banyak, karena menghilangkan keuntungan server side. Pecah komponen menjadi lebih kecil
-
-# Sebaliknya, ada 'use server' yang digunakan pada sebuah fungsi async untuk mengirim form data ke server, fungsi tersebut menerima argumen formData, bisa diakses dengan formData.get('field').
-
-# Biasanya fungsi tersebut diletakkan pada file terpisah, lib/actions.js, nama file tidak penting (no-reserved). Karena dalam sebuah halaman, 'use server' tidak bisa berjalan bersama dengan 'use client'.

@@ -1,4 +1,0 @@
-Next melakukan aggressive caching:
-- Ketika menggunakan fetching data suatu halaman dengan komponen async yang meload sebuah data dahulu sebelum page diload. Saat mereload, tidak dilakukan fetching lagi.
-
-Pada fungsi lib/action.js yang dipanggil komponen async tersebut harus ada revalidatePath('url')
