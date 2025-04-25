@@ -57,7 +57,9 @@ function MyComponent({ query }) {
 }
 ```
 
-Alternatifnya kamu juga bisa buat debounce pakai useRef dan setTimeout manual.
+Dalam code tersebut, `query` bisa saja `state yang ingin dipantau` dan dependency update API akan ke `debounceQuery`.
+
+Alternatifnya kamu juga bisa buat debounce pakai useRef dan setTimeout manual (rujuk ke bagian "pattern & best practice").
 
 ## 3. Abort Fetch / Cancel Previous Requests
 

@@ -59,11 +59,7 @@ function DebouncedInput() {
 
 ---
 
-- `search`: state langsung dari input.
-- `debouncedValue`: hanya berubah jika user berhenti mengetik selama 500ms.
-- `useRef` menyimpan timeout ID agar bisa dibatalkan sebelum membuat timeout baru.
-- Tidak terjadi update state berkali-kali saat user aktif mengetik.
-
----
-
-Kalau kamu mau contoh lain (seperti resize listener atau penggunaan di API call), tinggal bilang aja ya!
+- Ketika pengguna mengetik sesuatu di input (onChange), fungsi handleChange dipanggil.
+- Pertama, kita set search ke nilai input yang sedang diketik.
+- Selanjutnya, kita mengecek apakah ada timeout yang sebelumnya sedang berjalan dengan timeoutRef.current. Kalau ada, kita clearTimeout untuk membatalkan timeout tersebut (menghindari eksekusi yang tidak diinginkan).
+- Kemudian kita set timeout baru dengan setTimeout, yang akan mengupdate debouncedValue setelah 500ms. Artinya, debouncedValue hanya akan diupdate setelah pengguna berhenti mengetik selama 500ms.
