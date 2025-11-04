@@ -1,2 +1,0 @@
-Komponen ini digunakan ketika kita menggunakan layout pada routing
-Berguna untuk menentukan dimana children page akan diletakkan

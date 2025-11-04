@@ -1,1 +1,0 @@
-Untuk menggunakan layout pada sebuah komponen 
