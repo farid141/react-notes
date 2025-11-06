@@ -1,9 +1,0 @@
-# useState digunakan untuk membuat state (sinkronisasi data DOM dengan script JS). Untuk mengubah state dipanggil fungsi setter
-
-# Ketika terdapat perubahan sebuah state, maka akan dire-render komponen dari state tersebut didefinisikan dan childnya
-
-Jika kita menggunakan variabel javascript biasa, ketika nilainya berubah ui tetap tidak berubah dikarenakan tidak ada rerender
-
-# best practice menggunakan ketika menggunakan setter updateState adalah dengan callback. 
-karena dalam satu event-handler, jika kita mengubah state tanpa callback, pada baris selanjutnya yang mengakses state tersebut masih belum berubah, baru berubah ketika render selanjutnya. Untuk mendapatkan nilai yang sudah diubah, gunakan:
-setActive(current => !current)
