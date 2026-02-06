@@ -28,7 +28,13 @@ useEffect(() => {
 }, [param])
 ```
 
-Ketika async selesai maka async sebelumnya tidak akan mengupdate state apabila ada async baru yang berjalan (ditandai dengan isSubscribed=false).
+Dalam kasus tersebut, ketika sebuah efek masuk selagi efek lama berjalan:
+
+1. React MENJALANKAN cleanup effect LAMA
+2. React MEMBUAT effect BARU
+3. Effect baru punya closure baru
+
+Sehingga ketika reseponse efek 1 selesai, tidak akan mengubah state karena `isSubscribed` bernilai `false` dari menjalankan cleanup effect lama.
 
 ## 2. Debounce / Throttle
 
