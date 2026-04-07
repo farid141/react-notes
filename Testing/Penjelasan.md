@@ -4,8 +4,8 @@
 
 Jika Anda membuat proyek menggunakan **Create React App**, beberapa package testing sudah terinstal secara otomatis:
 
-- **Jest**: Framework testing JavaScript.
-- **React Testing Library**: Library khusus untuk menguji komponen React.
+- **Jest**: Framework testing JavaScript (Running dan Asserting).
+- **React Testing Library**: Library khusus untuk menguji komponen React (Rendering).
 
 Nama file test biasanya memiliki format `.test.js` atau `.spec.js`. File ini berisi fungsi-fungsi testing seperti:
 

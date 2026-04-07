@@ -1,6 +1,6 @@
 # UseCallback
 
-Untuk Memoize (menyimpan) definisi fungsi agar tidak berubah setiap render.
+Untuk Memoize (menyimpan) `definisi fungsi` agar tidak berubah setiap render.
 
 Biasanya dipakai untuk mencegah re-render anak atau menghindari pembuatan fungsi baru tiap kali render.
 

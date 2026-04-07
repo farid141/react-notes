@@ -1,6 +1,6 @@
 # UseMemo
 
-optimasi komputasi agar hanya dilakukan ketika terdapat perubahan state tertentu saja.
+optimasi `hasil komputasi` agar hanya dilakukan ketika terdapat perubahan state tertentu saja.
 
 ```jsx
 import React, { useState, useMemo } from "react";
